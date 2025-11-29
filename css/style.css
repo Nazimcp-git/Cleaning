@@ -423,7 +423,7 @@ header {
     filter: brightness(0) saturate(100%) invert(40%) sepia(84%) saturate(1312%) hue-rotate(348deg) brightness(98%) contrast(93%);
 }
 .active-home a {
-    color: #13143f !important;
+    color: #ffffff !important;
 }
 /*-----------------------[ Mobile Menu CSS ]------------------------*/
 .menu-toggle {
@@ -881,7 +881,14 @@ header {
     padding-top: 8px;
 }
 .aliquam-text {
-    display: none;
+    color: var(--5, #FFF);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 .services-slider-box:hover .aliquam-text {
     opacity: 1;
