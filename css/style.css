@@ -469,6 +469,55 @@ header {
     line-height: 24px;
 }
 /*-----------------------[ 6.Section One CSS ]------------------------*/
+/* Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Button style (square theme) */
+.btn-mainn.btn3 {
+    color: white;
+    padding: 10px 50px;
+    border-radius: 0px; /* square edges */
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-mainn.btn3:hover {
+    background-color: #0056b3;
+}
+
+/* Dropdown menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    border: 2px solid #ccc;
+    z-index: 1;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 .background-img-slider-SecOne {
     background-image: linear-gradient(to right, #3a94d1, #79c144);
     background-position: center center;
@@ -545,7 +594,6 @@ header {
 }
 /*-----------------------[ Button CSS ]------------------------*/
 .sec-one-buttons {
-    display: flex;
     align-items: center;
     gap: 90px;
     margin-top: 40px;
