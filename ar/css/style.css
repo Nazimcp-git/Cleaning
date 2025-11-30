@@ -468,7 +468,6 @@ header {
 }
 .call-info a {
     color: var(--2, #79c144);
-    font-family: Outfit;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -639,7 +638,6 @@ header {
 
 .btn-main {
     color: var(--2, #fff);
-    font-family: Outfit;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -653,7 +651,6 @@ header {
 }
 .btn-mainn {
     color: var(--2, #13143f);
-    font-family: Outfit;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;

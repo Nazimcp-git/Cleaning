@@ -530,6 +530,127 @@
             </div>
         </div>
     </footer>
+    <div class="language-floater">
+    <div class="floater-content">
+        <p>هل ترغب في تغيير اللغة؟</p>
+        <p class="sub-text">Would you like to change the language?</p>
+        <div class="floater-btns">
+            <!-- Link to your English page -->
+            <a href="index.html" class="lang-btn">English</a>
+            <!-- Current Arabic page -->
+            <a href="Cleaning/ar/index.html" class="lang-btn">العربية</a>
+        </div>
+    </div>
+    <button class="floater-close" onclick="this.parentElement.style.display='none'">×</button>
+</div>
+<style>
+    /*-----------------------[ Language Floating Widget ]------------------------*/
+
+.language-floater {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* Positioned on the Right */
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    z-index: 9999; /* Ensures it sits above everything */
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid #f0f0f0;
+    max-width: 320px;
+    animation: slideUp 0.8s ease-out;
+    font-family: 'Cairo', 'Tahoma', sans-serif !important; /* Ensure your font applies */
+}
+
+.floater-content p {
+    color: #13143f; /* Dark Blue from your theme */
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-align: right;
+    line-height: 1.4;
+}
+
+.floater-content .sub-text {
+    color: #A8A9AD;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    direction: ltr; /* English text should be LTR even in RTL mode */
+    text-align: right;
+}
+
+.floater-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start; /* Buttons align to the right */
+}
+
+.lang-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.lang-btn:hover {
+    background: #f9f9f9;
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: #F16122; /* Theme Orange */
+    color: #fff;
+    border-color: #F16122;
+    pointer-events: none; /* Disable click on current language */
+}
+
+/* Style for the English button to make it stand out */
+.lang-btn:not(.active) {
+    color: #13143f;
+    border-color: #13143f;
+}
+
+.floater-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    margin-top: -5px;
+    transition: color 0.3s;
+}
+
+.floater-close:hover {
+    color: #F16122;
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(50px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Hide on very small screens to avoid clutter */
+@media (max-width: 400px) {
+    .language-floater {
+        display: none;
+    }
+}
+</style>
     <!-- ====================================== Copyright ===================================== -->
     <div class="copyright-main" style="text-align: center;">
         <div class="container" style="text-align: center;">
