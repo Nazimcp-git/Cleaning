@@ -1,0 +1,571 @@
+/*------------------------------------------------------------------
+Project: Handyman RTL Overrides
+Author: The_Krishna
+Primary use: Override LTR styles for Right-to-Left (Arabic) layout.
+------------------------------------------------------------------ */
+/*
+    This CSS file is loaded specifically for Arabic pages (where <html dir="rtl"> is set). 
+    It reverses horizontal positioning, floats, padding, margins, and animations to 
+    ensure the mirrored layout looks correct.
+*/
+
+/*-----------------------[ 1.Default CSS Overrides ]------------------------*/
+/* Ensure all text aligns to the right, overriding any default LTR alignment */
+* {
+    text-align: right; 
+}
+p, ul, ol, li, a, h1, h2, h3, h4, h5, h6 {
+    text-align: right;
+}
+/* Remove default left padding on lists */
+ul {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/*-----------------------[ 3.Whole Site Image Animtion CSS Overrides ]------------------------*/
+
+/* img-animation-style1 (Slide from Left to Right becomes Right to Left) */
+.img-animation-style1 {
+    /* Start hidden right */
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+}
+.img-animation-style1 img {
+    /* Translate to the right (was -100px left) */
+    transform: scale(1.5) translate(100px, 0px);
+}
+
+/* img-animation-style2 (Slide from Right to Left becomes Left to Right) */
+.img-animation-style2 {
+    /* Start hidden left */
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+.img-animation-style2 img {
+    /* Translate to the left (was 100px right) */
+    transform: scale(1.5) translate(-100px, 0px);
+}
+
+/*-----------------------[ 4.Whole Page scroll Aniamtion CSS Overrides ]------------------------*/
+
+/* Flip horizontal fade/flip animations */
+.fade_right {
+    /* Fade from right */
+    transform: translateX(100%);
+}
+.fade_left {
+    /* Fade from left */
+    transform: translateX(-100%);
+}
+.flip_left {
+    /* Flip Y rotation */
+    transform: perspective(400px) rotateY(90deg);
+}
+.flip_right {
+    /* Flip Y rotation */
+    transform: perspective(400px) rotateY(-90deg);
+}
+
+/*-----------------------[ 5.Header CSS Overrides ]------------------------*/
+
+.small-header-sub p img {
+    /* Move padding to the left of the image */
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.small-header-sub-main {
+    /* Reverse the order of header elements */
+    flex-direction: row-reverse;
+}
+
+.menu-list {
+    /* Align main menu items to the left (mirrored from flex-end) */
+    justify-content: flex-start;
+    padding-left: 40px;
+    padding-right: 0;
+}
+
+.menu-ul-list {
+    /* Dropdown menu positioning must be mirrored */
+    right: -280px;
+    left: auto;
+}
+
+.menu-ul-list-d {
+    /* Flip the menu and image order */
+    flex-direction: row-reverse;
+    /* Flip the padding horizontally */
+    padding: 0 20px 0 20px;
+}
+
+/*-----------------------[ 6.Section One CSS Overrides ]------------------------*/
+
+.dropdown-content {
+    /* Dropdown should open to the right (start) */
+    right: 0;
+    left: auto;
+}
+
+/* Button CSS */
+.arrow {
+    /* Arrow direction must be mirrored */
+    transform: rotate(45deg);
+}
+
+.arrow-section {
+    /* Flip the diamond shape's rotation */
+    transform: rotate(-45deg);
+}
+
+.btn-box-left {
+    /* The box that was on the left should be on the right */
+    right: -20px;
+    left: auto;
+}
+
+.btn-box-right {
+    /* The box that was on the right should be on the left */
+    left: -20px;
+    right: auto;
+}
+
+.btn-main:hover .arrow-section {
+    /* Hover effect: arrow section moves to the left (was 90% left) */
+    right: 90%;
+    left: auto;
+}
+
+.right-arrow-svg {
+    /* Position the SVG on the left */
+    left: -120px;
+    right: auto;
+}
+
+@keyframes moveLeftRight {
+    /* Flip the animation movement from positive X (right) to negative X (left) */
+    0% { transform: translateX(0px); }
+    50% { 
+        transform: translateX(-10px);
+        -moz-transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+        -ms-transform: translateX(-10px);
+        -o-transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+        -moz-transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+.play-now {
+    /* Padding should be on the right of the icon */
+    padding-right: 33px;
+    padding-left: 0;
+}
+
+/*-----------------------[ 7.Section Two CSS Overrides ]------------------------*/
+
+.about-sec-img2 {
+    /* Position image on the left */
+    left: 77px;
+    right: auto;
+}
+
+.about-sec-img3 {
+    /* Position image on the left */
+    left: 0;
+    right: auto;
+}
+
+.about-sec-contact-main {
+    /* Flip margin to the right */
+    margin-right: 30px;
+    margin-left: 0;
+    /* Reverse the order of contact elements */
+    flex-direction: row-reverse;
+}
+
+/*-----------------------[ 9.Section Four CSS Overrides ]------------------------*/
+
+.input-main {
+    /* Ensure inputs flow correctly in flex layout */
+    flex-direction: row-reverse;
+}
+
+.formDropDown {
+    /* Ensure dropdown content aligns with the right-to-left flow */
+    flex-direction: row-reverse;
+}
+
+.formDropDown>span {
+    /* Move arrow icon to the left */
+    left: 20px;
+    right: auto;
+}
+
+/*-----------------------[ 10.Section Five CSS Overrides ]------------------------*/
+
+.number-circel {
+    /* Correct horizontal translation for RTL centered absolute positioning */
+    left: 50%; 
+    right: auto;
+    transform: translate(50%, -50%); 
+}
+
+/*-----------------------[ 12.Section Seven CSS Overrides ]------------------------*/
+
+.free-contact-sec-main {
+    /* Reverse the order of elements (text on the right, button/contact on the left) */
+    flex-direction: row-reverse;
+}
+
+/*-----------------------[ 13.Section Eight CSS Overrides ]------------------------*/
+
+.team-mem-details {
+    /* Details box on hover should appear on the right */
+    right: 20px;
+    left: auto;
+}
+
+.share-btn-main {
+    /* Share button should be top-left */
+    left: 0;
+    right: auto;
+}
+
+.share-btn-main .submenu li {
+    /* Submenu items should expand from the top-left corner */
+    left: 0;
+    right: auto;
+}
+
+.Appointment-box-sub {
+    /* Forces content inside flex to respect RTL */
+    flex-direction: row-reverse;
+}
+
+.Review {
+    /* Flip margin to the right */
+    margin-right: 30px;
+    margin-left: 0;
+}
+
+/*-----------------------[ 14.Section Nine CSS Overrides ]------------------------*/
+
+.trusted-group {
+    /* Flip the order of the rating group */
+    flex-direction: row-reverse;
+}
+
+.star-img-main {
+    /* Flip the star rating icon/text order */
+    flex-direction: row-reverse;
+}
+
+.Review {
+    /* Flip margin to the right */
+    margin-right: 30px;
+    margin-left: 0;
+}
+
+/*-----------------------[ 15.Section Blog CSS Overrides ]------------------------*/
+
+.tag-date {
+    /* Flip the date/tag order */
+    flex-direction: row-reverse;
+}
+
+.tips {
+    /* Flip the gradient direction for the hover effect */
+    background-image: linear-gradient(to left, #F16122 45%, #000 55%);
+    background-position: 0% 50%; 
+}
+.blog-box:hover .tips {
+    /* End the animation on the right */
+    background-position: 100% 50%;
+}
+
+/*-----------------------[ 16.Section REPAIR & INSTALLATION CSS Overrides ]------------------------*/
+
+.installation-img1 {
+    /* Position image on the right */
+    right: 0;
+    left: auto;
+}
+
+.yerOfExperi {
+    /* Position the rotated text on the right side */
+    right: -70px;
+    left: auto;
+    /* Flip rotation to compensate for RTL environment */
+    transform: rotate(90deg);
+}
+
+.accordion-button::after {
+    /* Mirror the arrow icon for accordion */
+    transform: scaleX(-1);
+}
+.accordion-button:not(.collapsed)::after {
+    /* Mirror the active state arrow icon and re-adjust rotation */
+    transform: scaleX(-1) rotate(180deg);
+}
+
+/*-----------------------[ 17.Section Schedule Service CSS Overrides ]------------------------*/
+
+
+/*-----------------------[ 18.Footer CSS Overrides ]------------------------*/
+
+.usefulLinks-List li a {
+    /* Flip the gradient direction for the hover effect */
+    background-image: linear-gradient(to left, #3a94d1 45%, #ffffff 55%);
+    background-position: 0% 50%; 
+}
+.usefulLinks-List li a:hover {
+    /* End the animation on the right */
+    background-position: 100% 50%;
+}
+.CallUs-phone p,
+.CallUs-phone {
+    /* Flip the gradient direction for the hover effect */
+    background-image: linear-gradient(to left, #79c144 45%, #FFF 55%);
+    background-position: 0% 50%; 
+}
+.CallUs-phone:hover p,
+.CallUs-phone:hover {
+    /* End the animation on the right */
+    background-position: 100% 50%;
+}
+.rights-reserved {
+    /* Flips the order of the copyright text and links */
+    flex-direction: row-reverse;
+}
+
+/*-----------------------[ 19.Bottom top button CSS Overrides ]------------------------*/
+
+button.bottom-top-button {
+    /* Move fixed button to the left */
+    left: 30px;
+    right: auto;
+}
+button.bottom-top-button img {
+    /* Flips the arrow icon back to point "up" in the new coordinate system */
+    transform: rotate(45deg);
+}
+
+
+/*-----------------------[ 20.About Page CSS Overrides ]------------------------*/
+
+/* Overrides for LTR gradient in page headers */
+#about-bg, #team-bg, #get-quote-bg, #our-client-bg, #testimonials-bg, #faq-bg, #error404-bg, #services-bg,
+#plumbing-service-bg, #roofing-service-bg, #carpentry-service-bg, #cleaning-service-bg, #air-service-bg,
+#paint-service-bg, #electrical-service-bg, #solar-service-bg, #welding-service-bg, #project-bg, #single-project-bg,
+#blog-bg, #conatct-bg, #pricing-bg {
+    /* Gradient starts dark on the right (270deg is 'to left') */
+    background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.90) 27.86%, rgba(0, 0, 0, 0.00) 100%), var(--background-image-url);
+}
+
+.img-group-about-page {
+    /* Flips alignment to the start (right side in RTL) */
+    align-items: flex-start;
+}
+
+.image28 {
+    /* Flip margin to the left */
+    margin-left: 100px;
+    margin-right: 0;
+}
+.whatWeRow {
+    /* Flip elements in the row */
+    flex-direction: row-reverse;
+}
+.whatWe {
+    /* Flip elements in the box */
+    flex-direction: row-reverse;
+}
+
+
+/*-----------------------[ 23.Pricing Page CSS Overrides ]------------------------*/
+
+.slid-btn:before {
+    /* Move slider handle to the right (start) */
+    right: 3px;
+    left: auto;
+}
+input:checked+.slid-btn:before {
+    /* Move slider handle 30px to the left (end) */
+    transform: translateX(-30px);
+}
+#monthly-plan,
+#yearly-plan {
+    /* Flip the order of the pricing plans */
+    flex-direction: row-reverse;
+}
+
+/*-----------------------[ 28.Error Page CSS Overrides ]------------------------*/
+
+.robot-img-text {
+    /* Flip the robot image and text order */
+    flex-direction: row-reverse;
+}
+
+.oops {
+    /* Position the speech bubble on the left */
+    left: 180px;
+    right: auto;
+}
+
+/* Glitch effects for 404 text */
+.Error404-text:before {
+    /* Offset to the right */
+    right: 2px;
+    left: auto;
+    text-shadow: 1px 0 #0ff; 
+}
+.Error404-text:after {
+    /* Offset to the left */
+    right: -2px;
+    left: auto;
+    text-shadow: -3px 0 #FF28D7; 
+}
+
+/*-----------------------[ 29.Coming Soon Page CSS Overrides ]------------------------*/
+
+.coming-soon-subscribe-btn {
+    /* Button on the left */
+    left: 0;
+    right: auto;
+}
+.coming-soon-subscribe input {
+    /* Adjust input padding for button on the left */
+    padding-right: 20px;
+    padding-left: 100px; 
+}
+
+/*-----------------------[ 31.Single Services Page CSS Overrides ]------------------------*/
+
+
+/*-----------------------[ 33.Project Page Two CSS Overrides ]------------------------*/
+
+.slideshow .slick-dots {
+    /* Move dots to the left side */
+    left: 0;
+    right: auto;
+}
+
+.topnav a {
+    /* Flip float for navigation links */
+    float: right;
+}
+
+.topnav-right {
+    /* Move the utility links to the left */
+    float: left;
+}
+
+/*-----------------------[ 34.Project Page Three CSS Overrides ]------------------------*/
+
+.portfolio-item .portfolio-img::before {
+    /* Flip the triangular corner overlay: should appear top-left */
+    border-top: 65px solid #F16122;
+    border-left: 65px solid #F16122;
+    border-bottom: 65px solid transparent;
+    border-right: 65px solid transparent;
+    /* Initial position offset to the left */
+    left: -25%;
+    right: auto;
+}
+.portfolio-item:hover .portfolio-img::before {
+    /* End position for the hover effect (top-left) */
+    left: 0;
+    right: auto;
+}
+
+.portfolio-item .portfolio-content {
+    /* Content on hover should be bottom-right */
+    right: 15px;
+    left: auto;
+}
+
+/*-----------------------[ 36.Blog Page CSS Overrides ]------------------------*/
+
+.share-container-main {
+    /* Flips share container text/button order */
+    flex-direction: row-reverse;
+}
+
+.social-icons {
+    /* Move social icons popup to the right */
+    right: -20px;
+    left: auto;
+}
+
+.qoute-img1 {
+    /* Top quote icon positioned right */
+    right: 42px;
+    left: auto;
+}
+.qoute-img2 {
+    /* Bottom quote icon positioned left */
+    left: 42px;
+    right: auto;
+}
+.search-box {
+    /* Search button on the left */
+    left: 0;
+    right: auto;
+}
+.search-input input {
+    /* Adjust padding for search button on the left */
+    padding-right: 18px;
+    padding-left: 70px;
+    text-align: right; 
+}
+.recent-post-main {
+    /* Flip the image and text order in recent posts */
+    flex-direction: row-reverse;
+}
+
+/*-----------------------[ 37.Contact Page CSS Overrides ]------------------------*/
+
+.head-phone-white-main {
+    /* Reverse elements in contact details box */
+    flex-direction: row-reverse;
+}
+
+.contact-deatils-head .CallUs-phone p,
+.contact-deatils-head .CallUs-phone {
+    /* Flip the gradient direction for the hover effect */
+    background-image: linear-gradient(to left, #F16122 45%, #000 55%);
+}
+.contact-deatils-head .CallUs-phone:hover p,
+.contact-deatils-head .CallUs-phone:hover {
+    /* End the animation on the right */
+    background-position: 100% 50%;
+}
+#conat-media-icon-main-head.home-media-icon-main-head {
+    /* Flip the order of the media icons */
+    flex-direction: row-reverse;
+}
+
+/* Ensure form input text alignment is correct */
+#contact-page-form input,
+textarea {
+    text-align: right;
+}
+
+/* Set input padding to ensure text entry starts from the right and flows correctly */
+#contact-page-form input {
+    padding: 12px 12px 12px 0;
+}
+textarea {
+    padding: 15px 20px 15px 20px; 
+}
+.services_slider .slick-slide {
+    margin: 0 15px; /* Margin on left and right */
+}
+.services_slider .slick-list {
+    margin: 0 -15px; /* Negative margin to counteract the slide margins */
+}
