@@ -383,7 +383,7 @@
                     </p>
                     <form class="req-form-main">
                         <div class="input-main">
-                            <input type="text" placeholder="Your Name*" name="YourName">
+                            <input type="text" id="nameInput" placeholder="Your Name*" name="YourName">
                             <input type="text" placeholder="Email ID*" name="EmailID">
                         </div>
                         <div class="input-main">
@@ -426,12 +426,14 @@
     <script>
 function sendToWhatsApp() {
     let message = document.getElementById("msgInput").value;
+    let name = document.getElementById("nameInput").value;
     let phone = "971529973761"; // Add your phone number (with country code)
 
     // Encode the message for URL safety
-    let encodedMessage = encodeURIComponent(message);
+    let fullMessage = `Name: ${name}\nMessage: ${message}`;
+    let encoded = encodeURIComponent(fullMessage);
 
-    let url = `https://wa.me/${phone}?text=${encodedMessage}`;
+    let url = `https://wa.me/${phone}?text=${encoded}`;
 
     // Redirect to WhatsApp
     window.location.href = url;
