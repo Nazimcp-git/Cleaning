@@ -338,10 +338,10 @@
                             </div>
                         </div>
                         <div class="input-main">
-                            <input type="text" placeholder="رسالتك*" name="YourMessage">
+                            <input type="text" id="msgInput" placeholder="رسالتك*" name="YourMessage">
                         </div>
                         <div class="Submit">
-                            <a href="#" class="btn-main btn2">إرسال</a>
+                            <a onclick="sendToWhatsApp()"  class="btn-main btn2">إرسال</a>
                         </div>
                     </form>
                 </div>
@@ -352,6 +352,20 @@
             </div>
         </div>
     </section>
+    <script>
+function sendToWhatsApp() {
+    let message = document.getElementById("msgInput").value;
+    let phone = "971529973761"; // Add your phone number (with country code)
+
+    // Encode the message for URL safety
+    let encodedMessage = encodeURIComponent(message);
+
+    let url = `https://wa.me/${phone}?text=${encodedMessage}`;
+
+    // Redirect to WhatsApp
+    window.location.href = url;
+}
+</script>
     <!-- ====================================== Section Five ===================================== -->
 
 
