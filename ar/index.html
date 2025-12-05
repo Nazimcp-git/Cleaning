@@ -97,6 +97,18 @@
                     
                 </div>
             </nav>
+            <script>
+    const links = document.querySelectorAll(".conta-home");
+    const nav = document.querySelector(".menu");
+    const overlau = document.querySelector(".menuOverlay");
+
+    links.forEach(link => {
+        link.addEventListener("click", function() {
+            nav.classList.remove("active");
+            overlau.classList.remove("active");
+        });
+    });
+</script>
             <div class="contact">
                 <div class="icon">
                     <img src="images/headphone.svg" alt="headphone">
